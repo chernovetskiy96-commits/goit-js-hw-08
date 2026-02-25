@@ -2,8 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    cursor: pointer;
     list-style-type: none;
     width: calc(100% - 330px);
     margin: 0 auto;
+    padding-top: 24px;
 }

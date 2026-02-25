@@ -91,3 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
     ulElem.innerHTML = markup;
 })
 
+ulElem.addEventListener('click', e => {
+  e.preventDefault();
+
+  if (e.target.nodeName !== 'IMG') {
+    return;
+  }
+
+  const largeImageURL = e.target.dataset.source;
+  showModal(largeImageURL);
+});
+
+function showModal(imageUrl) {
+  const instance = basicLightbox.create(`
+    <img src="${imageUrl}" width="800" />
+  `);
+
+  instance.show();
+}
+
+
