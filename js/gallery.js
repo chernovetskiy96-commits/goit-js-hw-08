@@ -1,4 +1,4 @@
-const ulElem = document.querySelector('.js-gallery');
+
 
 const images = [
   {
@@ -74,8 +74,7 @@ function itemTemplate(item) {
             src="${item.preview}"
             data-source="${item.original}"
             alt="${item.description}"
-            width="340"
-            cursor="pointer"  
+            width="340" 
           />
         </a>
       </li>
@@ -87,11 +86,12 @@ function itemsTemplate(arr) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const ulElem = document.querySelector('.js-gallery');
+    if (!ulElem) return;
     const markup = itemsTemplate(images);
     ulElem.innerHTML = markup;
-})
 
-ulElem.addEventListener('click', e => {
+    ulElem.addEventListener('click', e => {
   e.preventDefault();
 
   if (e.target.nodeName !== 'IMG') {
@@ -101,6 +101,9 @@ ulElem.addEventListener('click', e => {
   const largeImageURL = e.target.dataset.source;
   showModal(largeImageURL);
 });
+})
+
+
 
 function showModal(imageUrl) {
   const instance = basicLightbox.create(`
